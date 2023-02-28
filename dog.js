@@ -16,6 +16,4 @@ export class Dog {
         </div>
         `;
   }
-
-  
 }
