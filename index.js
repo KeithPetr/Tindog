@@ -45,23 +45,27 @@ footerEl.addEventListener("click", (e) => {
 
 function renderLikedList() {
   document.getElementById("dog-container").innerHTML = getLikedList(likedArray);
-  console.log(likedArray);
 }
 
 function getLikedList(likedArray) {
-    console.log(likedArray[0]);
-      return likedArray.map(dog => {
-         return `
-            <h1>Liked Profiles</h1>
-            <div class='liked-list'>
-                <div class='liked-profile'>
-                    <img src="${dog.avatar}" class="liked-dog-image"/>
-                    <div class='liked-text'>
-                        <p class='liked-name-age'>${dog.name}, ${dog.age}</p>
-                        <p class='liked-bio'>${dog.bio}</p>
-                    </div>
+  if (likedArray.length === 0) {
+    return `
+        <h1>No Liked Profiles</h1>
+        `;
+  } else {
+    return likedArray.map((dog) => {
+      return `
+        <h1>Liked Profiles</h1>
+        <div class='liked-list'>
+            <div class='liked-profile'>
+                <img src="${dog.avatar}" class="liked-dog-image"/>
+                <div class='liked-text'>
+                    <p class='liked-name-age'>${dog.name}, ${dog.age}</p>
+                    <p class='liked-bio'>${dog.bio}</p>
                 </div>
             </div>
-            `;
-      })
+        </div>
+        `;
+    });
   }
+}
