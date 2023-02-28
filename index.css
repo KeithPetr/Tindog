@@ -88,7 +88,7 @@ header {
   bottom: 50px;
   left: 10px;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .bio {
@@ -125,7 +125,7 @@ footer > div {
   justify-content: center;
   align-items: center;
   width: 15%;
-  margin: 0.5em 0.5em 1em;
+  margin: 1em 0.75em;
   padding: 1em;
   object-fit: cover;
   box-shadow: 0px 10px 20px #6f837d;
