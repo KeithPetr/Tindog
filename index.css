@@ -11,6 +11,8 @@ body {
   margin: 3em auto;
   background: white;
   width: 50%;
+  max-width: 600px;
+  min-width: 400px;
 }
 
 /* -------------------- HEADER ------------------------ */
@@ -26,11 +28,18 @@ header {
 .icon-container {
   width: 10%;
   margin: 0.5em;
+  padding: .5em;
 }
 
 .chat-icon,
 .profile-icon {
   width: 100%;
+}
+
+.icon-container:hover {
+  box-shadow: 0px 5px 20px #6f837d;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .paw-icon-container {
@@ -41,6 +50,11 @@ header {
   background: linear-gradient(270deg, #fa695a 0%, #f83375 100%);
   border-radius: 30px;
   border: none;
+}
+
+.paw-icon-container:hover {
+  box-shadow: 0px 5px 20px #e01c0e;
+  cursor: pointer;
 }
 
 .paw-icon {
@@ -62,22 +76,40 @@ header {
   width: 100%;
 }
 
-.name-age, .bio {
+.name-age,
+.bio {
   text-shadow: 1px 1px 1px black;
   background: rgba(12, 12, 12, 0.2);
-  padding: .2em;
+  padding: 0.2em;
 }
 
 .name-age {
   position: absolute;
   bottom: 50px;
   left: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .bio {
   position: absolute;
   bottom: 15px;
   left: 10px;
+}
+
+.like-image,
+.nope-image {
+  box-sizing: border-box;
+  position: absolute;
+  left: 4%;
+  top: 8%;
+  width: 42%;
+  border-radius: 15px;
+  transform: rotate(-30deg);
+}
+
+.none {
+  display: none;
 }
 
 /* ---------------- FOOTER --------------------*/
@@ -96,8 +128,7 @@ footer > div {
   margin: 0.5em 0.5em 1em;
   padding: 1em;
   object-fit: cover;
-  border: 1px solid black;
-  box-shadow: 0px 10px 20px #ccf1e6;
+  box-shadow: 0px 10px 20px #6f837d;
   border-radius: 50%;
 }
 

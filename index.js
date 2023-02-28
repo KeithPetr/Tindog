@@ -1,12 +1,41 @@
-import {dogs} from './data.js'
-import {Dog} from './dog.js'
+import { dogs } from "./data.js";
+import { Dog } from "./dog.js";
 
-// let dogsArray = [dog1, dog2, dog3]
+const footerEl = document.getElementById("footer");
+
+let isWaiting = false;
+let dogBio = getNewDog();
 
 function render() {
-    document.getElementById('dog-container').innerHTML = dogBio.getDogHtml()
+  document.getElementById("dog-container").innerHTML = dogBio.getDogHtml();
 }
 
-let dogBio = new Dog(dogs[2])
+render();
 
-render()
+function getNewDog() {
+  const nextDogData = dogs.shift();
+  return nextDogData ? new Dog(nextDogData) : {};
+}
+
+footerEl.addEventListener("click", (e) => {
+  if (!isWaiting) {
+    if (e.target.id.includes("nope-icon")) {
+      dogBio.hasBeenSwiped = true;
+      document.getElementById("nope-image").classList.remove('none')
+    } else if (e.target.id.includes("like-icon")) {
+      dogBio.hasBeenSwiped = true;
+      document.getElementById("like-image").classList.remove('none')
+    }
+
+    if (dogBio.hasBeenSwiped === true) {
+      isWaiting = true;
+      if (getNewDog) {
+        setTimeout(() => {
+          dogBio = getNewDog();
+          render();
+          isWaiting = false;
+        }, 1500);
+      }
+    }
+  }
+});
