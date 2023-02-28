@@ -13,6 +13,8 @@ body {
   width: 50%;
 }
 
+/* -------------------- HEADER ------------------------ */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -46,13 +48,36 @@ header {
   padding: 1em 0;
 }
 
+/* ---------------- MAIN CONTENT ------------------------- */
+
 .img-container {
   width: 98%;
   margin: 0 auto;
+  position: relative;
+  color: #fff;
+  font-size: 1.3rem;
 }
 
 .dog-img {
   width: 100%;
+}
+
+.name-age, .bio {
+  text-shadow: 1px 1px 1px black;
+  background: rgba(12, 12, 12, 0.2);
+  padding: .2em;
+}
+
+.name-age {
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+}
+
+.bio {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
 }
 
 /* ---------------- FOOTER --------------------*/
