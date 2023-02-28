@@ -4,6 +4,7 @@ import { Dog } from "./dog.js";
 const footerEl = document.getElementById("footer");
 
 let isWaiting = false;
+let likedArray = [];
 let dogBio = getNewDog();
 
 function render() {
@@ -14,17 +15,19 @@ render();
 
 function getNewDog() {
   const nextDogData = dogs.shift();
-  return nextDogData ? new Dog(nextDogData) : {};
+  return nextDogData ? new Dog(nextDogData) : renderLikedList();
 }
 
 footerEl.addEventListener("click", (e) => {
   if (!isWaiting) {
     if (e.target.id.includes("nope-icon")) {
       dogBio.hasBeenSwiped = true;
-      document.getElementById("nope-image").classList.remove('none')
+      document.getElementById("nope-image").classList.remove("none");
     } else if (e.target.id.includes("like-icon")) {
       dogBio.hasBeenSwiped = true;
-      document.getElementById("like-image").classList.remove('none')
+      dogBio.hasBeenLiked = true;
+      likedArray.push(dogBio);
+      document.getElementById("like-image").classList.remove("none");
     }
 
     if (dogBio.hasBeenSwiped === true) {
@@ -39,3 +42,26 @@ footerEl.addEventListener("click", (e) => {
     }
   }
 });
+
+function renderLikedList() {
+  document.getElementById("dog-container").innerHTML = getLikedList(likedArray);
+  console.log(likedArray);
+}
+
+function getLikedList(likedArray) {
+    console.log(likedArray[0]);
+      return likedArray.map(dog => {
+         return `
+            <h1>Liked Profiles</h1>
+            <div class='liked-list'>
+                <div class='liked-profile'>
+                    <img src="${dog.avatar}" class="liked-dog-image"/>
+                    <div class='liked-text'>
+                        <p class='liked-name-age'>${dog.name}, ${dog.age}</p>
+                        <p class='liked-bio'>${dog.bio}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+      })
+  }
