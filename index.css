@@ -145,3 +145,47 @@ footer > div > img {
   cursor: pointer;
   background: #ffe7ef;
 }
+
+/* ---------------------LIKED LIST ----------------------- */
+
+h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.liked-list {
+  width: 98%;
+}
+
+.liked-profile {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.liked-image-container {
+  width: 20%;
+}
+
+.liked-dog-image {
+  width: 100%;
+  height: 60%;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 1em;
+}
+
+.liked-text {
+ margin-left: 2em;
+ font-size: 1.2rem;
+}
+
+.liked-name-age {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.no-likes {
+  width: 95%;
+  margin-left: .65em;
+}
