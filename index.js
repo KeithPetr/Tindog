@@ -34,13 +34,10 @@ function getNewDog() {
 footerEl.addEventListener("click", (e) => {
   if (!isWaiting) {
     if (e.target.id.includes("nope-icon")) {
-      dogBio.hasBeenSwiped = true;
-      document.getElementById("nope-image").classList.remove("none");
+      dogBio.setNope()
     } else if (e.target.id.includes("like-icon")) {
-      dogBio.hasBeenSwiped = true;
-      dogBio.hasBeenLiked = true;
+      dogBio.setLiked()
       likedArray.push(dogBio);
-      document.getElementById("like-image").classList.remove("none");
     }
 
     // The purpose of this if statement is to wait for a swipe event on a dog bio, and then fetch a new dog bio from the

@@ -1,7 +1,6 @@
 export class Dog {
   constructor(data) {
     Object.assign(this, data);
-    const { name, avatar, age, bio, hasBeenSwiped, hasBeenLiked } = this;
   }
 
   getDogHtml() {
@@ -15,5 +14,16 @@ export class Dog {
           <p class="bio">${bio}</p>
         </div>
         `;
+  }
+
+  setLiked() {
+    this.hasBeenSwiped = true;
+    this.hasBeenLiked = true;
+    document.getElementById('like-image').classList.remove('none')
+  }
+
+  setNope() {
+    this.hasBeenSwiped = true;
+    document.getElementById('nope-image').classList.remove('none')
   }
 }
